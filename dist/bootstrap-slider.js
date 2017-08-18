@@ -213,8 +213,10 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 	})($);
 
 	/*************************************************
- 			BOOTSTRAP-SLIDER SOURCE CODE
- 	**************************************************/
+ 
+ 		BOOTSTRAP-SLIDER SOURCE CODE
+ 
+ **************************************************/
 
 	(function ($) {
 
@@ -286,7 +288,7 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 						}
 					}
 
-					return 100 * (value - this.options.min) / (this.options.max - this.options.min);
+					return 100 * [(value - this.options.min) / (this.options.max - this.options.min)];
 				}
 			},
 
@@ -324,8 +326,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 		};
 
 		/*************************************************
-  						CONSTRUCTOR
-  	**************************************************/
+  							CONSTRUCTOR
+  		**************************************************/
 		Slider = function Slider(element, options) {
 			createNewSlider.call(this, element, options);
 			return this;
@@ -358,8 +360,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			}
 
 			/*************************************************
-   					Process Options
-   	**************************************************/
+   						Process Options
+   		**************************************************/
 			options = options ? options : {};
 			var optionTypes = Object.keys(this.defaultOptions);
 
@@ -414,8 +416,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			}
 
 			/*************************************************
-   					Create Markup
-   	**************************************************/
+   						Create Markup
+   		**************************************************/
 
 			var origWidth = this.element.style.width;
 			var updateSlider = false;
@@ -586,8 +588,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			}
 
 			/*************************************************
-   						Setup
-   	**************************************************/
+   							Setup
+   		**************************************************/
 			this.eventToCallbackMap = {};
 			this.sliderElem.id = this.options.id;
 
@@ -728,8 +730,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			this.setValue(this._state.value);
 
 			/******************************************
-   				Bind Event Listeners
-   	******************************************/
+   					Bind Event Listeners
+   		******************************************/
 
 			// Bind keyboard handlers
 			this.handle1Keydown = this._keydown.bind(this, 0);
@@ -813,10 +815,10 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 		}
 
 		/*************************************************
-  				INSTANCE PROPERTIES/METHODS
-  	- Any methods bound to the prototype are considered
+  					INSTANCE PROPERTIES/METHODS
+  		- Any methods bound to the prototype are considered
   part of the plugin's `public` interface
-  	**************************************************/
+  		**************************************************/
 		Slider.prototype = {
 			_init: function _init() {}, // NOTE: Must exist to support bridget
 
@@ -1017,11 +1019,11 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 			},
 
 			/******************************+
-   				HELPERS
-   	- Any method that is not part of the public interface.
+   					HELPERS
+   		- Any method that is not part of the public interface.
    - Place it underneath this comment block and write its signature like so:
-   		_fnName : function() {...}
-   	********************************/
+   			_fnName : function() {...}
+   		********************************/
 			_removeSliderEventHandlers: function _removeSliderEventHandlers() {
 				// Remove keydown event listeners
 				this.handle1.removeEventListener("keydown", this.handle1Keydown, false);
@@ -1176,9 +1178,9 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 
 				/* Position highlight range elements */
 				if (this.rangeHighlightElements.length > 0 && Array.isArray(this.options.rangeHighlights) && this.options.rangeHighlights.length > 0) {
-					for (var _i = 0; _i < this.options.rangeHighlights.length; _i++) {
-						var startPercent = this._toPercentage(this.options.rangeHighlights[_i].start);
-						var endPercent = this._toPercentage(this.options.rangeHighlights[_i].end);
+					for (var _i2 = 0; _i2 < this.options.rangeHighlights.length; _i2++) {
+						var startPercent = this._toPercentage(this.options.rangeHighlights[_i2].start);
+						var endPercent = this._toPercentage(this.options.rangeHighlights[_i2].end);
 
 						if (this.options.reversed) {
 							var sp = 100 - endPercent;
@@ -1189,19 +1191,20 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 						var currentRange = this._createHighlightRange(startPercent, endPercent);
 
 						if (currentRange) {
+							this.rangeHighlightElements[_i].style.display = '';
 							if (this.options.orientation === 'vertical') {
-								this.rangeHighlightElements[_i].style.top = currentRange.start + "%";
-								this.rangeHighlightElements[_i].style.height = currentRange.size + "%";
+								this.rangeHighlightElements[_i2].style.top = currentRange.start + "%";
+								this.rangeHighlightElements[_i2].style.height = currentRange.size + "%";
 							} else {
 								if (this.options.rtl) {
-									this.rangeHighlightElements[_i].style.right = currentRange.start + "%";
+									this.rangeHighlightElements[_i2].style.right = currentRange.start + "%";
 								} else {
-									this.rangeHighlightElements[_i].style.left = currentRange.start + "%";
+									this.rangeHighlightElements[_i2].style.left = currentRange.start + "%";
 								}
-								this.rangeHighlightElements[_i].style.width = currentRange.size + "%";
+								this.rangeHighlightElements[_i2].style.width = currentRange.size + "%";
 							}
 						} else {
-							this.rangeHighlightElements[_i].style.display = "none";
+							this.rangeHighlightElements[_i2].style.display = "none";
 						}
 					}
 				}
@@ -1878,8 +1881,8 @@ var windowIsDefined = (typeof window === "undefined" ? "undefined" : _typeof(win
 		};
 
 		/*********************************
-  		Attach to global namespace
-  	*********************************/
+  			Attach to global namespace
+  		*********************************/
 		if ($ && $.fn) {
 			var autoRegisterNamespace = void 0;
 
