@@ -288,7 +288,7 @@ const windowIsDefined = (typeof window === "object");
 						}
 					}
 
-					return 100 * (value - this.options.min) / (this.options.max - this.options.min);
+					return 100 * [(value - this.options.min) / (this.options.max - this.options.min)];
 				}
 			},
 
