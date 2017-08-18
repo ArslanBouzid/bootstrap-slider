@@ -1227,6 +1227,7 @@ const windowIsDefined = (typeof window === "object");
 						var currentRange = this._createHighlightRange(startPercent, endPercent);
 
 						if (currentRange) {
+							this.rangeHighlightElements[_i].style.display = '';
 							if (this.options.orientation === 'vertical') {
 								this.rangeHighlightElements[i].style.top = `${currentRange.start}%`;
 								this.rangeHighlightElements[i].style.height = `${currentRange.size}%`;
